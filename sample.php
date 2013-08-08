@@ -9,32 +9,24 @@
 require_once 'vendor/autoload.php';
 
 
-$api_key = '64XXXXX'; // Testing
+$api_key = '64XXXXX'; // Real API key from zip-tax.com required
 
-$type = 'JSON';
+// the default is 'JSON'
+$type = 'XML';
 
-// Optional arguments
-
+// Optional arguments 'city', 'state'
 $opts = array(
     'city' => 'Healdsburg'
 );
 
 $zipTax = new GuzzleZipTax($api_key, $type);
 $zipData = $zipTax->fetch('95448', $opts);
-print_r($zipData);
+// print_r($zipData);
 
+// Sales tax percent
 if ($type === 'XML') {
-    print('Tax Rate: ' . $zipData[0]->taxSales . "\n");
-    print('Rounded Tax Rate: ' . roundTaxRate($zipData[0]->taxSales) . "\n");
+    printf("Tax Rate: %.3f%%\n", floatval($zipData[0]->taxSales) * 100);
 }
 else {
-    print('Tax Rate: ' . $zipData[0]['taxSales'] . "\n");
-    print('Rounded Tax Rate: ' . roundTaxRate($zipData[0]['taxSales']) . "\n");
-}
-
-$testAmt = '0.082550003278255';
-print "Rounding test ($testAmt) = " . roundTaxRate($testAmt) . "\n";
-
-function roundTaxRate($rate) {
-    return sprintf('%.3f', round(floatval($rate) * 100, 3));
+    printf("Tax Rate: %.3f%%\n", floatval($zipData[0]['taxSales']) * 100);
 }
