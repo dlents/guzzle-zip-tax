@@ -1,5 +1,5 @@
 {
-    "name" : "dlents/PHP-ZipTaxGuzzler",
+    "name" : "dlents/PHP-GuzzleZipTax",
     "description" : "A PHP wrapper for the zip-tax.com API, using Guzzle.",
     "license" : "BSD-3-Clause",
     "version" : "0.1.0",
@@ -19,10 +19,9 @@
     },
     "require" : {
         "php": ">=5.3.2",
-        "ext-curl": "*",
         "guzzle/http": "~3.7"
     },
     "autoload" : {
-        "psr-0" : { "GuzzleZipTax": "" }
+        "psr-0" : { "GuzzleZipTax": "src/" }
     }
 }
