@@ -1,0 +1,4 @@
+vendor/
+data/
+composer.lock
+zip-tax.php

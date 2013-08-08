@@ -1,0 +1,28 @@
+{
+    "name" : "dlents/PHP-ZipTaxGuzzler",
+    "description" : "A PHP wrapper for the zip-tax.com API, using Guzzle.",
+    "license" : "BSD-3-Clause",
+    "version" : "0.1.0",
+    "type" : "library",
+    "keywords" : ["zip-tax", "tax", "sales tax", "zipcode", "zip", "postal code", "guzzle", "php", "php5"],
+    "homepage" : "http://captina.net/about_us",
+
+    "authors" : [
+        {
+            "name" : "David Lents",
+            "email" : "david@lents.net",
+            "role" : "Developer"
+        }
+    ],
+    "support": {
+        "email": "david@lents.net"
+    },
+    "require" : {
+        "php": ">=5.3.2",
+        "ext-curl": "*",
+        "guzzle/http": "~3.7"
+    },
+    "autoload" : {
+        "psr-0" : { "GuzzleZipTax": "" }
+    }
+}
