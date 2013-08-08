@@ -16,6 +16,10 @@ class GuzzleZipTax {
     protected $api_response_codes;
     protected $api_response_result;
 
+    /**
+     * @param string $key
+     * @param string $flavor
+     */
     public function __construct($key = '', $flavor = 'JSON') {
         $this->api_key = $key;
         /**
@@ -49,7 +53,12 @@ class GuzzleZipTax {
         $this->api_client = new Guzzle\Http\Client($this->api_url);
     }
 
-    public function fetch($zip, array $optional_params) {
+    /**
+     * @param string $zip
+     * @param array $optional_params
+     *
+     * @return array|bool
+     */public function fetch($zip, array $optional_params) {
         // the postalcode param is the only required param (other than the api key)
         if (empty($zip)) {
             trigger_error('A postal code parameter is required', E_USER_ERROR);
@@ -72,9 +81,11 @@ class GuzzleZipTax {
         )->send();
 
         return $this->parseResponse();
-    }
+}
 
-    protected function parseResponse() {
+    /**
+     * @return array
+     */protected function parseResponse() {
         // The error checking may be for nought. Despite the docs, bad zip/city/state returns 100 (success) and empty result set
         switch ($this->api_response_flavor) {
             case 'XML':
@@ -90,7 +101,6 @@ class GuzzleZipTax {
                 break;
             default:
                 $ret = $this->api_response_result->json();
-                print "Code: " . $ret['rCode'] . "\n";
                 if (intval($ret['rCode']) === 100) {
                     return $ret['results'];
                 }
@@ -104,4 +114,3 @@ class GuzzleZipTax {
         }
     }
 }
-
