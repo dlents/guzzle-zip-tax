@@ -1,5 +1,6 @@
 
-### ZipTaxGuzzler - A PHP wrapper for the zip-tax.com API, using Guzzle
+# GuzzleZipTax
+## A PHP wrapper for the zip-tax.com API using Guzzle
 
 
 [Zip-Tax.com](http://www.zip-tax.com) provides a very simple API to look up sales tax information for a given US zip code.
