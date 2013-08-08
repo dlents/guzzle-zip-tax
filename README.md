@@ -1,5 +1,5 @@
 
-## ZipTaxGuzzler - A PHP wrapper for the zip-tax.com API, using Guzzle
+### ZipTaxGuzzler - A PHP wrapper for the zip-tax.com API, using Guzzle
 
 
 [Zip-Tax.com](http://www.zip-tax.com) provides a very simple API to look up sales tax information for a given US zip code.
@@ -13,15 +13,15 @@ A large project I work on recently decided to start using the [Zip-Tax.com](http
 
     $api_key = '64XXXXX'; // Obtain a real API key from @link http://www.zip-tax.com/
 
-    $format = 'JSON';
-
     // New class object
     $zipTax = new GuzzleZipTax($api_key);
 
-    // There's an optional format argument (defaults to 'JSON'). You may specify 'XML' if you prefer SimpleXMLElement responses
+    // The constructor allows an optional format argument (defaults to 'JSON').
+    // You may specify 'XML' if you prefer SimpleXMLElement responses:
     // $zipTax = new GuzzleZipTax($api_key, 'XML');
 
-    // Optional arguments to the fetch() method are 'city' (full city name) and 'state' (2-letter state code)
+    // Optional argument to the fetch() method is an array which may contain:
+    // 'city' (full city name), 'state' (2-letter state code)
     $opts = array(
         'city' =>  'Healdsburg',
         'state' => 'CA'
