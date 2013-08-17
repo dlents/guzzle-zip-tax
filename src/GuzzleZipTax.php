@@ -58,7 +58,7 @@ class GuzzleZipTax {
      * @param array $optional_params
      *
      * @return array|bool
-     */public function fetch($zip, array $optional_params) {
+     */public function fetch($zip, $optional_params = array()) {
         // the postalcode param is the only required param (other than the api key)
         if (empty($zip)) {
             trigger_error('A postal code parameter is required', E_USER_ERROR);

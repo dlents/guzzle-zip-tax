@@ -5,17 +5,20 @@
     "version" : "0.1.0",
     "type" : "library",
     "keywords" : ["zip-tax", "tax", "sales tax", "zipcode", "zip", "postal code", "guzzle", "php", "php5"],
-    "homepage" : "http://captina.net/about_us",
+    "homepage" : "https://github.com/dlents/guzzle-zip-tax",
 
     "authors" : [
         {
             "name" : "David Lents",
             "email" : "david@lents.net",
+            "homepage": "https://github.com/dlents",
             "role" : "Developer"
         }
     ],
     "support": {
-        "email": "david@lents.net"
+        "email": "david@lents.net",
+        "issues": "https://github.com/dlents/guzzle-zip-tax/issues",
+        "wiki": "https://github.com/dlents/guzzle-zip-tax/wiki"
     },
     "require" : {
         "php": ">=5.3.2",
