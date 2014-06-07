@@ -26,7 +26,7 @@ class GuzzleZipTax {
          * Possible response codes and their meanings
          *  @note Unfortunately, this seems to be of no use because the API does not respond as documented
          *    + Invalid postal_code, city, state return code 100, with empty results rather than the expected error code
-         * * @link http://www.zip-tax.com/documentation
+         * @link http://www.zip-tax.com/documentation
          */
         $this->api_response_codes = array(
             '100' => 'SUCCESS',
@@ -58,7 +58,8 @@ class GuzzleZipTax {
      * @param array $optional_params
      *
      * @return array|bool
-     */public function fetch($zip, $optional_params = array()) {
+     */
+    public function fetch($zip, $optional_params = array()) {
         // the postalcode param is the only required param (other than the api key)
         if (empty($zip)) {
             trigger_error('A postal code parameter is required', E_USER_ERROR);
@@ -85,7 +86,8 @@ class GuzzleZipTax {
 
     /**
      * @return array
-     */protected function parseResponse() {
+     */
+    protected function parseResponse() {
         // The error checking may be for nought. Despite the docs, bad zip/city/state returns 100 (success) and empty result set
         switch ($this->api_response_flavor) {
             case 'XML':
