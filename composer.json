@@ -1,8 +1,8 @@
 {
-    "name" : "dlents/PHP-GuzzleZipTax",
-    "description" : "A PHP wrapper for the zip-tax.com API, using Guzzle.",
+    "name" : "dlents/guzzle-zip-tax",
+    "description" : "A PHP wrapper for the zip-tax.com API, using GuzzleHttp.",
     "license" : "BSD-3-Clause",
-    "version" : "0.1.0",
+    "version" : "0.1.2",
     "type" : "library",
     "keywords" : ["zip-tax", "tax", "sales tax", "zipcode", "zip", "postal code", "guzzle", "php", "php5"],
     "homepage" : "https://github.com/dlents/guzzle-zip-tax",
