@@ -101,8 +101,8 @@ class GuzzleZipTax {
         switch ($this->api_response_flavor) {
             case 'XML':
                 // $ret = $this->api_response_result->xml();
-                $ret = simplexml_load_string($this->api_response_result->getBody());
-                if ((int)$ret->code === 100) {
+                $ret = simplexml_load_string((string)$this->api_response_result->getBody());
+                if ((int)$this->api_response_result->getStatusCode() === 100) {
                     return $ret->response;
                 }
                 else {
@@ -112,7 +112,7 @@ class GuzzleZipTax {
                 }
                 break;
             default:
-                $ret = $this->api_response_result->getBody();
+                $ret = json_decode((string)$this->api_response_result->getBody(), true);
                 if ((int)$ret['rCode'] === 100) {
                     return $ret['results'];
                 }
