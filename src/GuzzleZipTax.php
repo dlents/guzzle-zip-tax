@@ -100,8 +100,9 @@ class GuzzleZipTax {
         // The error checking may be for nought. Despite the docs, bad zip/city/state returns 100 (success) and empty result set
         switch ($this->api_response_flavor) {
             case 'XML':
-                $ret = $this->api_response_result->xml();
-                if (intval($ret->code) === 100) {
+                // $ret = $this->api_response_result->xml();
+                $ret = simplexml_load_string($this->api_response_result->getBody());
+                if ((int)$ret->code === 100) {
                     return $ret->response;
                 }
                 else {
@@ -111,8 +112,8 @@ class GuzzleZipTax {
                 }
                 break;
             default:
-                $ret = $this->api_response_result->json();
-                if (intval($ret['rCode']) === 100) {
+                $ret = $this->api_response_result->getBody();
+                if ((int)$ret['rCode'] === 100) {
                     return $ret['results'];
                 }
                 else {
