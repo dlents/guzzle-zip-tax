@@ -119,7 +119,7 @@ class GuzzleZipTax {
                 else {
                     return [
                         'error'       => $this->api_response_codes[$ret['rCode']],
-                        'request_uri' => $this->api_response_result->getEffectiveUrl()
+                        // 'request_uri' => $this->api_response_result->getEffectiveUrl()
                     ];
                 }
                 break;
